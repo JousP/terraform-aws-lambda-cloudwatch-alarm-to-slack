@@ -8,7 +8,7 @@ locals {
 
 module "role" {
   source                = "JousP/iam-assumeRole/aws"
-  version               = "~> 2.0"
+  version               = "~> 2.1.0"
   enabled               = var.create_role
   name                  = local.default["role_name"]
   description           = local.default["role_description"]
@@ -22,8 +22,7 @@ module "role" {
   policies              = var.role_policies
   json_policies_count   = var.role_json_policies_count
   json_policies         = var.role_json_policies
-  identifier            = ""
-  service               = "lambda.amazonaws.com"
+  service_identifiers   = ["lambda.amazonaws.com"]
 }
 
 data "null_data_source" "function_file" {

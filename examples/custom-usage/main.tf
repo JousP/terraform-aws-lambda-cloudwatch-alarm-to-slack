@@ -26,9 +26,8 @@ resource "aws_iam_role_policy_attachment" "lambda_role" {
 
 # Create the lambda function
 module "custom_usage" {
-  source = "../../"
-  # source                 = "JousP/lambda-cloudwatch-alarm-to-slack/aws"
-  # version                = "~> 2.0"
+  source                 = "JousP/lambda-cloudwatch-alarm-to-slack/aws"
+  version                = "~> 2.0"
   function_name          = "cloudwatch-alarm-to-slack-custom"
   description            = "Push Cloudwatch Alarms Notifications to Slack"
   slack_webhook_url      = "https://hooks.slack.com/services/XXX/XXX/XXX"
