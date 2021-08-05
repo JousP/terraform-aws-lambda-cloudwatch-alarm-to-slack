@@ -1,7 +1,7 @@
 # Create a custom role for the lambda function
 module "lambda_role" {
   source              = "JousP/iam-assumeRole/aws"
-  version             = "~> 3.2"
+  version             = "~> 3.3"
   name                = "custom-usage-lambda-role"
   service_identifiers = ["lambda.amazonaws.com"]
   managed_policy_arns = ["arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"]
@@ -10,7 +10,7 @@ module "lambda_role" {
 # Create the lambda function
 module "custom_usage" {
   source               = "JousP/lambda-cloudwatch-alarm-to-slack/aws"
-  version              = "~> 3.0"
+  version              = "~> 3.1"
   function_name        = "cloudwatch-alarm-to-slack-custom"
   description          = "Push Cloudwatch Alarms Notifications to Slack"
   slack_webhook_url    = "https://hooks.slack.com/services/XXX/XXX/XXX"
